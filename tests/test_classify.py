@@ -14,6 +14,8 @@ def _event(level: str) -> LogEvent:
         ("CRITICAL", "critical"),
         ("ERROR", "high"),
         ("WARNING", "medium"),
+        ("WARN", "medium"),
+        ("warn", "medium"),
         ("INFO", "low"),
         ("debug", "low"),
     ],
