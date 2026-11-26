@@ -11,6 +11,18 @@ def test_parses_four_fields():
     )
 
 
+def test_parses_three_fields_without_service():
+    event = parse_log_line(
+        "2026-11-21T02:03:07Z | ERROR | nightly export failed: disk quota exceeded"
+    )
+    assert event == LogEvent(
+        timestamp="2026-11-21T02:03:07Z",
+        level="ERROR",
+        service="unknown",
+        message="nightly export failed: disk quota exceeded",
+    )
+
+
 def test_message_may_contain_the_separator():
     event = parse_log_line("2026-11-20T08:14:03Z | INFO | api | a | b")
     assert event.message == "a | b"
