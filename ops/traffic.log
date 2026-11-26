@@ -1,0 +1,25 @@
+2026-11-21T01:58:12Z | INFO | auth-service | token refresh ok for 1832 sessions
+2026-11-21T01:58:40Z | INFO | billing-api | invoice run queued for 412 accounts
+2026-11-21T01:59:02Z | WARNING | checkout | payment provider latency 1.8s (p95)
+2026-11-21T01:59:15Z | DEBUG | auth-service | cache warmup finished in 220ms
+2026-11-21T02:00:01Z | INFO | scheduler | nightly export started
+2026-11-21T02:00:04Z | ERROR | nightly export failed: disk quota exceeded
+2026-11-21T02:00:05Z | INFO | scheduler | retry 1 of 3 scheduled in 60s
+2026-11-21T02:00:31Z | ERROR | billing-api | upstream timed out after 30s
+2026-11-21T02:01:05Z | ERROR | nightly export failed: disk quota exceeded
+2026-11-21T02:01:06Z | INFO | scheduler | retry 2 of 3 scheduled in 120s
+2026-11-21T02:01:44Z | INFO | checkout | 97 orders processed in the last minute
+2026-11-21T02:02:10Z | WARNING | billing-api | retrying upstream call (attempt 2)
+2026-11-21T02:02:20Z | INFO | billing-api | upstream recovered
+2026-11-21T02:03:07Z | ERROR | nightly export failed: disk quota exceeded
+2026-11-21T02:03:08Z | CRITICAL | nightly export abandoned after 3 retries
+2026-11-21T02:03:30Z | INFO | auth-service | 3 failed logins from 10.4.2.17, below lockout threshold
+2026-11-21T02:04:02Z | INFO | checkout | 102 orders processed in the last minute
+2026-11-21T02:05:00Z | WARNING | auth-service | certificate for sso.internal expires in 14 days
+2026-11-21T02:05:41Z | CRITICAL | billing-api | database unreachable
+2026-11-21T02:05:52Z | INFO | billing-api | database connection restored
+2026-11-21T02:06:13Z | INFO | scheduler | cleanup job started
+2026-11-21T02:06:19Z | WARNING | cleanup job skipped 12 locked files
+2026-11-21T02:06:20Z | INFO | scheduler | cleanup job finished
+2026-11-21T02:07:01Z | INFO | checkout | 88 orders processed in the last minute
+2026-11-21T02:07:45Z | DEBUG | checkout | feature flag new-cart=off for 100% of users

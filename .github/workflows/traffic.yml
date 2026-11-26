@@ -1,0 +1,30 @@
+name: traffic
+
+# Plays ops/traffic.log through the triage graph from main, traced to LangSmith, so the
+# project alert-triage-prod keeps getting "production" runs. After a fix is merged, the
+# next run shows no failures. Needs the repository secret LANGSMITH_API_KEY.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+jobs:
+  traffic:
+    runs-on: ubuntu-latest
+    env:
+      LANGSMITH_API_KEY: ${{ secrets.LANGSMITH_API_KEY }}
+      LANGSMITH_ENDPOINT: ${{ vars.LANGSMITH_ENDPOINT || 'https://api.smith.langchain.com' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e .
+      - name: Play traffic
+        run: |
+          if [ -z "$LANGSMITH_API_KEY" ]; then
+            echo "No LANGSMITH_API_KEY secret; skipping."
+            exit 0
+          fi
+          python scripts/simulate_traffic.py
