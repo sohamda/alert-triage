@@ -6,6 +6,7 @@ _SEVERITY_BY_LEVEL = {
     "CRITICAL": "critical",
     "ERROR": "high",
     "WARNING": "medium",
+    "WARN": "medium",
     "INFO": "low",
     "DEBUG": "low",
 }
