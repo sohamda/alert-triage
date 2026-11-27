@@ -17,8 +17,13 @@ class LogEvent:
 
 
 def parse_log_line(line: str) -> LogEvent:
-    """Split a pipe-separated log line into its four fields."""
-    timestamp, level, service, message = line.strip().split(" | ", 3)
+    """Parse a log line, defaulting an omitted service to unknown."""
+    fields = line.strip().split(" | ", 3)
+    if len(fields) == 3:
+        timestamp, level, message = fields
+        service = "unknown"
+    else:
+        timestamp, level, service, message = fields
     return LogEvent(
         timestamp=timestamp.strip(),
         level=level.strip(),
